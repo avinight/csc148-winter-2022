@@ -1,0 +1,47 @@
+=== CSC148: Quiz 6 ===
+For this quiz, replace the XXXX in this file with your answer.
+
+Do NOT change anything else in the file, otherwise the self-test may not
+register it correctly.
+
+Below we have listed an ADT, a method, and an implementation of that method.
+For each of the below, replace XXXX with the expected runtime complecity
+of the operation.
+
+This should be either 1 or n: 1 for constant time, n for linear time.
+
+Example: [Q# Answer] O(1)
+
+--------------------------------------------------------------------------------
+Part 1: Stacks with Linked Lists
+For the below questions, assume we are talking about a Stack implemented using
+a regular LinkedList.
+
+Q1. push: adding to the front (_first)
+[Q1 Answer] O(1)
+
+Q2. pop: removing the front (_first)
+[Q2 Answer] O(1)
+
+Q3. push: adding to the end
+[Q3 Answer] O(n)
+
+Q4. pop: removing the end
+[Q4 Answer] O(n)
+
+--------------------------------------------------------------------------------
+Part 2: Stacks with Lists
+For the below questions, assume we are talking about a Stack implemented using
+a regular List.
+
+Q5. push: adding to the front
+[Q5 Answer] O(n)
+
+Q6. pop: removing the front
+[Q6 Answer] O(n)
+
+Q7. push: adding to the end
+[Q7 Answer] O(1)
+
+Q8. pop: removing the end
+[Q8 Answer] O(1)

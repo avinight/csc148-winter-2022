@@ -1,0 +1,16 @@
+Doctor's Office
+===============
+
+A doctor's office needs software for scheduling appointments. It
+is a large practise with 10 to 15 doctors and several thousand
+patients. Patients can make an appointment with a doctor, and
+all appointments last 1 hour. Doctors schedule blocks of time
+when they are available for appointments. Each patient has a
+primary doctor. If their primary doctor is available on the hour
+and day when they wish to book they must see them; otherwise,
+they can see any doctor. A patient may cancel an appointment,
+but if they cancel more than 10, they are no longer allowed to
+book appointments (ever!). Doctors can cancel a block of time
+when they had said they were available; any patients who had
+appointments during that block get rescheduled at the earliest
+possible time, regardless of which doctor they get.

@@ -1,0 +1,35 @@
+Fraction
+========
+
+Context: a calculator app
+
+We need to be able to multiply fractions, and the print them in their decimal
+form. Fractions, of course have a numerator and a denominator. They need not be
+in their simplest form, for example, we could have 8/2, or 6/8.
+
+
+Candyland Board
+===============
+
+Context: The Candyland board game
+
+Candyland is a very simple children's game for two players. The board has spaces
+from 0 to 100. On their turn, a player advances a certain number of spaces. The
+first player to reach spot 100 wins. We need to keep track of where the players
+are so that we can report on the location of the two players whenever needed.
+We also want to be able to find out who the winner is: either one of the
+players, both if it's a tie, or no one if the game isn't over yet.
+
+
+Flight Roster
+=============
+
+Context: An airline reservation system
+
+Each seat has a unique name, like "17C" and is either in business class or
+economy. Passengers have booking IDs (a mix of letters and numbers). When they
+book a seat, they request their preferred class (business or economy) and are
+given any seat in that class. If the class is full, their booking is
+unsuccessful. This airline gives passengers no choice about their specific seat.
+We want to be able to report on how full a flight is: the percentage of seats
+that are booked in economy, in business class, and overall.
