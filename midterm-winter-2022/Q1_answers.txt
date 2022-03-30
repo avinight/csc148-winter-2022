@@ -1,0 +1,28 @@
+=== Question 1 answers ===
+
+
+(a) Answer (YES or NO):
+
+    If yes, explain how, and if no, explain why not:
+    Yes, assuming representation invariants are involved. Generally speaking,
+    we assume that preconditions are True and upheld for the method's
+    input. This changes how I would implement the method.
+    If there were no preconditions, I would enforce restrictions within the
+    method itself to not violate the representation invariants
+    imposed on the class.
+
+    However, assuming representation invariants are not involved
+    would not impact my decision whether to enforce restrictions upon the code,
+    since there is no reason to
+    given that there are no preconditions.
+
+
+(b) The docstring is:
+
+    """Test that lst.extend() contains elements of new within it.
+    """
+
+    The function body is:
+    lst.extend(new)
+    for item in new:
+        assert item in lst

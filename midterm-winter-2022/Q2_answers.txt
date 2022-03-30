@@ -1,0 +1,14 @@
+=== Question 2 answers ===
+
+
+(a) The output would be:
+    [[26, 27, 39], 'hi', '!']
+
+
+(b) The blanks should be filled in as follows:
+
+    Blank #1: 27
+
+    Blank #2: lst.append(add)
+
+    Blank #3: [nums, word]
