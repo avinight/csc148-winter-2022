@@ -212,6 +212,12 @@ class Citizen:
         >>> c1.get_superior() is c2
         True
         """
+        # Add to list
+        merge(self._subordinates, [subordinate])
+        # Ascending order
+
+        # Update new subordinate's superior to be this Citizen
+        subordinate._superior.set_superior(self)
 
     def remove_subordinate(self, cid: int) -> None:
         """Remove the subordinate with the ID <cid> from this Citizen's list
@@ -233,6 +239,12 @@ class Citizen:
         >>> c1.get_superior() is None
         True
         """
+        # Remove subordinate
+        for subordinate in self._subordinates:
+            if subordinate.cid == cid:
+                self._subordinates.remove(subordinate)
+                subordinate._superior = None
+        # Set superior to None
 
     def become_subordinate_to(self, superior: Optional[Citizen]) -> None:
         """Make this Citizen a direct subordinate of <superior>.
@@ -255,6 +267,7 @@ class Citizen:
         >>> c2.get_direct_subordinates()
         []
         """
+        superior.add_subordinate(self)
 
     def get_citizen(self, cid: int) -> Optional[Citizen]:
         """Check this Citizen and its subordinates to find and return the
