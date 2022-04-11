@@ -1,0 +1,37 @@
+>>> a = [1, 2, 3]
+>>> id(a)
+4308094208
+>>> a = a + [4]
+>>> id(a)
+4380256448
+>>> a
+[1, 2, 3, 4]
+>>> # Adding lists together with + ALWAYS CREATES A NEW LIST
+>>> 
+>>> a
+[1, 2, 3, 4]
+>>> id(a)
+4380256448
+>>> a.append(5)
+>>> id(a)
+4380256448
+>>> # Most list methods MUTATE A LIST (keeps same memory address)
+>>> a
+[1, 2, 3, 4, 5]
+>>> 
+>>> a
+[1, 2, 3, 4, 5]
+>>> id(a)
+4380256448
+>>> a[0] = 0
+>>> id(a)
+4380256448
+>>> # ACCESSING USING INDEX MUTATES EXISTING LIST (does not create new one)
+>>> a
+[0, 2, 3, 4, 5]
+>>> # Let's change the first element again, but in a different way:
+>>> a = [100, 2, 3, 4, 5]
+>>> id(a)
+4380560448
+>>> # When we have VARIABLE = ... what happens is we get the ID of the RHS, and assign that new ID to the variable
+>>> 
