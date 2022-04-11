@@ -42,6 +42,7 @@ def flatten(obj: Union[int, list]) -> List[int]:
             s.extend(flatten(sublist))
         return s
 
+
 # This function is traced on the first worksheet.
 def uniques(obj: Union[int, List]) -> List[int]:
     """Return a (non-nested) list of the integers in <obj>, with no duplicates.
@@ -131,6 +132,7 @@ def first_at_depth(obj: Union[int, List], d: int) -> Optional[int]:
         # depth-1. therefore, obj contains no int at depth d!!
         return None
 
+
 def add_one(obj: Union[list, int]) -> None:
     """Add one to every number stored in <obj>. Do nothing if <obj> is an int.
 
@@ -162,9 +164,6 @@ def add_one(obj: Union[list, int]) -> None:
                 obj[i] += 1 # using index this way MUTATES list, which is what we want :)
             else: # obj[i] is another nested list!
                 add_one(obj[i])
-
-
-
 
 
 if __name__ == '__main__':
