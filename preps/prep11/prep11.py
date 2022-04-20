@@ -157,7 +157,6 @@ def merge3(lst1: List, lst2: List, lst3: List) -> List:
     """
     # TODO: Implement this function
 	# Note that we've made it public because we'll be testing it directly.
-
 	# You may call _merge in this function, but you should only call it ONCE
 	# at most.
 	# i.e. merge the three lists together and use _merge as needed when

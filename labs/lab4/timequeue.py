@@ -204,6 +204,7 @@ def time_dequeue() -> Tuple[List[float], List[float]]:
     # Do not change the return statement below.
     return startqueue_times, endqueue_times
 
+
 def plot_experiment() -> None:
     """Run the timing experiment on AddToStartQueue and AddToEndQueue
      and plot a graph."""

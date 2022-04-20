@@ -185,12 +185,17 @@ class BinarySearchTree:
         """
         pass
 
-    # def extract_max(self) -> Any:
-    #     """Remove and return the maximum item stored in this tree.
-    #
-    #     Precondition: this tree is *non-empty*.
-    #     """
-    #     pass
+    def extract_max(self) -> Any:
+        """Remove and return the maximum item stored in this tree.
+
+        Precondition: this tree is *non-empty*.
+        """
+        if not (self._right or self._left):
+            s = self._root
+            self._root = None
+            return s
+        else:
+            return self._right.extract_max()
 
     # -------------------------------------------------------------------------
     # Additional BST methods

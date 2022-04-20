@@ -187,7 +187,18 @@ class BinarySearchTree:
         >>> bst.height()
         2
         """
-        # TODO: implement this method!
+
+        if self.is_empty():
+            return 0
+        elif self._left.is_empty() and self._right.is_empty():
+            return 1
+        else:
+            h = 0
+            if self._left.is_empty():
+                h += 1 + self._right.height()
+            else:
+                h += 1 + self._left.height()
+            return h
 
     def items_in_range(self, start: Any, end: Any) -> List:
         """Return the items in this BST between <start> and <end>, inclusive.
@@ -213,7 +224,19 @@ class BinarySearchTree:
         >>> bst.items_in_range(10, 13)
         [11, 13]
         """
-        # TODO: implement this method!
+        if self.is_empty():
+            return []
+        else:
+            l = []
+
+            if end >= self._root >= start:
+                l.append(self._root)
+
+            for item in self._left.items_in_range(start, end):
+                l.insert(0, item)
+            l.extend(self._right.items_in_range(start, end))
+
+            return l
 
     # ------------------------------------------------------------------------
     # Task 2
@@ -233,7 +256,15 @@ class BinarySearchTree:
         >>> bst._right._root
         20
         """
-        # TODO: implement this method!
+        if self.is_empty():
+            self._root = item
+            self._left = BinarySearchTree(None)
+            self._right = BinarySearchTree(None)
+        else:
+            if item <= self._root:
+                self._left.insert(item)
+            elif item >= self._root:
+                self._right.insert(item)
 
     # ------------------------------------------------------------------------
     # Task 4
@@ -272,7 +303,19 @@ class BinarySearchTree:
               11
         <BLANKLINE>
         """
-        # TODO: implement this method
+        temp1 = BinarySearchTree(self._left._right._root)
+        temp1._right = self._left._right._right
+        temp1._left = self._left._right._left
+
+        temp2 = BinarySearchTree(self._root)
+        temp2._right = self._right
+        temp2._left = temp1
+
+        self._left._right = None
+
+        self._right = temp2
+        self._root = self._left._root
+        self._left = self._left._left
 
     def rotate_left(self) -> None:
         """Rotate the BST counter-clockwise,
@@ -317,7 +360,19 @@ class BinarySearchTree:
               9
         <BLANKLINE>
         """
-        # TODO: implement this method!
+        temp1 = BinarySearchTree(self._right._left._root)
+        temp1._left = self._right._left._left
+        temp1._right = self._right._left._right
+
+        temp2 = BinarySearchTree(self._root)
+        temp2._left = self._left
+        temp2._right = temp1
+
+        self._right._left = None
+
+        self._left = temp2
+        self._root = self._right._root
+        self._right = self._right._right
 
 
 if __name__ == '__main__':

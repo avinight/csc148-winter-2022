@@ -30,7 +30,13 @@ def insert_delete_all(items: list[int]) -> None:
     Note: you'll need to first create your own BinarySearchTree here,
     and then call insert and delete on it.
     """
-    # TODO: implement this function!
+    bst = BinarySearchTree(items[0])
+    for item in items[1:]:
+        bst.insert(item)
+
+    for item in items:
+        if item in bst:
+            bst.delete(item)
 
 
 def get_items(size: int, is_sorted: bool) -> list[int]:
