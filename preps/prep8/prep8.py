@@ -107,7 +107,7 @@ class Tree:
         """
         if self.is_empty():
             return 0
-        elif self._subtrees == []:
+        elif not self._subtrees:
             if self._root < 0:
                 return 1
             else:
@@ -136,12 +136,10 @@ class Tree:
         """
         if self.is_empty():
             return 0
-        elif self._subtrees == []:
+        elif not self._subtrees:
             return self._root
         else:
-            s = []
-            for subtree in self._subtrees:
-                s.append(subtree.maximum())
+            s = [subtree.maximum() for subtree in self._subtrees]
             return max(s)
 
     def height(self: Tree) -> int:
@@ -158,7 +156,7 @@ class Tree:
         """
         if self.is_empty():
             return 0
-        elif self._subtrees == []:
+        elif not self._subtrees:
             return 1
         else:
             s = []
@@ -179,13 +177,14 @@ class Tree:
         """
         if self.is_empty():
             return False
-        elif self._subtrees == []:
+        elif not self._subtrees:
             return item == self._root
         else:
-            for subtree in self._subtrees:
-                if subtree.__contains__(item):
-                    return True
-            return False
+            return any(subtree.__contains__(item) for subtree in self._subtrees)
+            # for subtree in self._subtrees:
+            #     if subtree.__contains__(item):
+            #         return True
+            # return False
 
 
 if __name__ == '__main__':

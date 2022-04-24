@@ -134,12 +134,18 @@ def mergesort3(lst: List) -> List:
     >>> mergesort3([10, 2, 5, -6, 17, 10])
     [-6, 2, 5, 10, 10, 17]
     """
-    # TODO: Complete the implementation of this function!
     # You must NOT use mergesort, sort, or sorted.
     if len(lst) < 2:  # We've provided the base case for you.
         return lst[:]
     else:
-        pass
+        mid1 = len(lst) // 3
+        mid2 = len(lst) // 3 * 2
+
+        left_sorted = mergesort(lst[:mid1])
+        mid_sorted = mergesort(lst[mid1:mid2])
+        right_sorted = mergesort(lst[mid2:])
+
+        return merge3(left_sorted, mid_sorted, right_sorted)
 
 
 def merge3(lst1: List, lst2: List, lst3: List) -> List:
@@ -155,12 +161,26 @@ def merge3(lst1: List, lst2: List, lst3: List) -> List:
     up your code into one or more helpers to divide up (and test!) each part
     separately.
     """
-    # TODO: Implement this function
-	# Note that we've made it public because we'll be testing it directly.
-	# You may call _merge in this function, but you should only call it ONCE
-	# at most.
-	# i.e. merge the three lists together and use _merge as needed when
-	# there's only two lists left to merge.
+    i1 = 0
+    i2 = 0
+
+    lst4 = []
+    while i1 < len(lst1) and i2 < len(lst2):
+        if lst1[i1] <= lst2[i2]:
+            lst4.append(lst1[i1])
+            i1 += 1
+        else:
+            lst4.append(lst2[i2])
+            i2 += 1
+    # Append the remaining
+    lst4 = lst4 + lst1[i1:] + lst2[i2:]
+    return _merge(lst3, lst4)
+
+# Note that we've made it public because we'll be testing it directly.
+# You may call _merge in this function, but you should only call it ONCE
+# at most.
+# i.e. merge the three lists together and use _merge as needed when
+# there's only two lists left to merge.
 
 
 def kth_smallest(lst: List, k: int) -> Any:
@@ -171,12 +191,22 @@ def kth_smallest(lst: List, k: int) -> Any:
 
     Precondition: <lst> does not contain duplicates.
 
-    >>> kth_smallest([10, 20, -4, 3], 0)
-    -4
+    # >>> kth_smallest([10, 20, -4, 3], 0)
+    # -4
     >>> kth_smallest([10, 20, -4, 3], 2)
     10
     """
-    # TODO: Implement this function
+    if k < 0 or k >= len(lst):
+        raise IndexError
+    elif len(lst) == 1:
+        return lst[0]
+    else:
+        smaller, bigger = _partition(lst[1:], lst[0])
+        smaller.append(lst[0])
+        if k < len(smaller):
+            return kth_smallest(smaller, k)
+        else:
+            return kth_smallest(bigger, k - len(smaller))
     # You may *not* sort the list here (this is easy but not very efficient).
     # Instead, use the following approach, based on quicksort:
     #   1. partition the list based on a chosen pivot:
@@ -190,5 +220,5 @@ if __name__ == '__main__':
     import doctest
     doctest.testmod()
 
-    import python_ta
-    python_ta.check_all(config={'disable': ['E1136']})
+    # import python_ta
+    # python_ta.check_all(config={'disable': ['E1136']})

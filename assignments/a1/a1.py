@@ -482,7 +482,7 @@ class GameBoard:
         >>> b._get_adjacent_bins(2, 2)
         9
         """
-        # Adjacent bins
+        # Adjacent bins setup
         count = 0
         lst = []
         if seen is not None:
@@ -495,7 +495,7 @@ class GameBoard:
                                               y + direction[1]) not in seen):
                     lst.append((x + direction[0], y + direction[1]))
                     count += 1
-
+        # Recursion
         if count == 0:
             return 0
         if count > 0:

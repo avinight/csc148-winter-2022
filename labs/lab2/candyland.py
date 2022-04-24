@@ -24,9 +24,9 @@ class Player:
         self.name = name
         self.position = 0
 
-    def move(self, move) -> None:
-        if min_move < move < max_move
-        return move
+    # def move(self, move) -> None:
+    #     if min_move < move < max_move:
+    #         return move
 
 
 class Board:

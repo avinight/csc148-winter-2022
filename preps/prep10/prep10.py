@@ -84,22 +84,16 @@ class Tree:
               1
           4
         """
-        if self.is_empty() or not self._subtrees:
+        if self.is_empty():
+            return None
+        elif not self._subtrees:
             return None
         else:
-            lst = []
+            s = [treesub._root for treesub in self._subtrees]
             for subtree in self._subtrees:
-                lst.append(subtree._root())
-            i = max(lst)
-            for subtree in self._subtrees:
-                n = subtree._root()
-                if n == i and n > self._root:
-                    subtree._root = self._root
-                    self._root = n
+                if self._root < max(s) and subtree._root == max(s):
+                    self._root, subtree._root = subtree._root, self._root
                     subtree.swap_down()
-                    return None
-                elif n == i:
-                    return None
             return None
 
     ############################################################################

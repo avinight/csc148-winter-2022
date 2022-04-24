@@ -246,6 +246,13 @@ class BinarySearchTree:
             # Know: right child is not empty.
             # The max in me is over there!
             return self._right._extract_max()
+        # incorrect implementation
+        # if self._right.is_empty():
+        #     max_item = self._root
+        #     self = self._left
+        #     return max_item
+        # else:
+        #     return self._right.extract_max()
 
 
 if __name__ == "__main__":

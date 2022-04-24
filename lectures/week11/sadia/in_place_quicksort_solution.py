@@ -82,7 +82,6 @@ def in_place_quicksort(lst: List, start: int, end: int) -> None:
         in_place_quicksort(lst, pivot_index + 1, end)
 
 
-
 def _in_place_partition(lst: List[int], start: int, end: int) -> int:
     """Mutate <lst> so that it is partitioned with pivot lst[0].
 

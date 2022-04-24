@@ -34,7 +34,7 @@ def mergesort2(lst: list,
         mid = (start + end) // 2
         mergesort2(lst, start, mid)
         mergesort2(lst, mid, end)
-        _merge(lst, start, mid, end)
+        _merge2(lst, start, mid, end)
 
 
 def _merge(lst: list, start: int, mid: int, end: int) -> None:
@@ -117,7 +117,7 @@ def timsort(lst: list) -> None:
     while len(runs) > 1:
         run1 = runs.pop()
         run2 = runs.pop()
-        _merge(lst, run2[0], run2[1], run1[1])
+        _merge2(lst, run2[0], run2[1], run1[1])
         runs.append((run2[0], run1[1]))
     # Treat runs as a stack and repeatedly merge the top two runs
     # When the loop ends, the only run should be the whole list.
@@ -279,7 +279,25 @@ def _merge2(lst: list, start: int, mid: int, end: int) -> None:
 
     Precondition: lst[start:mid] and lst[mid:end] are sorted.
     """
-    # TODO: Implement this!
+    left = start
+
+    right = mid
+    a_copy = lst[start:mid]
+    a_copy_start = 0
+    while a_copy_start < len(a_copy) and right < end:
+        if a_copy[a_copy_start] <= lst[right]:
+            lst[left] = a_copy[a_copy_start]
+            left += 1
+            a_copy_start += 1
+        else:
+            lst[left] = lst[right]
+            left += 1
+            right += 1
+
+    while left < end:
+        lst[left] = a_copy[a_copy_start]
+        left += 1
+        a_copy_start += 1
 
 
 ###############################################################################
