@@ -38,9 +38,9 @@ BOARD_WIDTH = 7  # 20
 BOARD_HEIGHT = 10  # 15
 
 # Number of each type of Character to include in a random game
-NUM_RACCOONS = 69
-NUM_GARBAGE_CANS = 0
-NUM_RECYCLING_BINS = 0  # int(BOARD_HEIGHT * BOARD_WIDTH * 0.25)
+NUM_RACCOONS = 2
+NUM_GARBAGE_CANS = 1
+NUM_RECYCLING_BINS = int(BOARD_HEIGHT * BOARD_WIDTH * 0.25)
 
 # Number of milliseconds to wait between iterations of the main game loop.
 # This changes the speed of the game. The main player can move at most
